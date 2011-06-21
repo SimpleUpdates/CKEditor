@@ -40,8 +40,8 @@ width:100%;
 }
 
 .cke_skin_chris .cke_top,.cke_skin_chris .cke_bottom,.cke_shared .cke_skin_chris {
-background:url(images/gradient.png) top center repeat-x;
-background-position:0 -30px;
+background: url("images/toolbar_gradient.png") repeat;
+background-position:0 -28px;
 }
 
 .cke_skin_chris .cke_top {
@@ -687,7 +687,7 @@ background-position:0 0;
 background-position:0 -48px;
 }
 
-.cke_skin_chris .cke_button_preview .cke_icon {
+.cke_skin_chris .cke_button_serverpreview .cke_icon {
 background-position:0 -64px;
 }
 
