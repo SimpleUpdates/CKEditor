@@ -14,15 +14,13 @@ CKEDITOR.dialog.add = function (e1,e2) {
             ],
             onLoad : function( )
             {
-                var selectEle = this.getInputElement();
-                jQuery.getJSON( "action/article/ckeditor/links", function( data ){
+		var selectBox = jQuery( '#'+this.getInputElement().getId() );
+		jQuery.getJSON( "action/article/ckeditor/links", function( data ){
                     if( data.success ){
-                        var option = "<option value=''></option>";
-                        for( var i = 0; i < data.links.length; i++ ){
-                            var link = data.links[i];
-                            option += "<option value='" + link.value + "'>" + link.label + "</option>";
-                        }
-                        selectEle.setHtml( option );
+			selectBox.append( jQuery( "<option/>" ) );
+			jQuery.each( data.links, function( key, link ) {
+				jQuery( "<option/>" ).val( link.value ).html( link.label ).appendTo( selectBox );
+			});
                     } else {
                         alert( data.error.message );
                     }
