@@ -202,6 +202,13 @@ opacity:1;
 padding-bottom:3px;
 }
 
+.cke_skin_chris .cke_dialog_ui_vbox {
+display:inline-block;
+position:relative;
+*display:inline;
+*zoom:1;
+}
+
 .cke_skin_chris .cke_dialog_ui_vbox table,.cke_skin_chris .cke_dialog_ui_hbox table {
 margin:auto;
 }
@@ -294,11 +301,13 @@ border-width:2px;
 }
 
 .cke_skin_chris .cke_dialog_footer_buttons {
-display:inline-table;
+display:inline-block;
 margin-left:12px;
 margin-right:12px;
 position:relative;
 width:auto;
+*display:inline;
+*zoom:1;
 }
 
 .cke_skin_chris .cke_dialog_footer_buttons span.cke_dialog_ui_button {
