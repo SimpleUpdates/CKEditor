@@ -45,6 +45,7 @@ CKEDITOR.dialog.add = function (e1,e2) {
             commit : function( data )
             {
                 data.articleType = this.getValue();
+		this.setValue( '' );
             }
         };
         data.contents[0].elements.splice(1,0,su_var);
