@@ -26,6 +26,10 @@ CKEDITOR.dialog.add = function (e1,e2) {
                     }
                 });
             },
+            onShow : function( )
+            {
+                jQuery( '#'+this.getInputElement().getId() ).val( '' );
+            },
             onChange : function( data )
             {
                 var dialog = this.getDialog();
