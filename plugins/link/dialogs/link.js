@@ -51,7 +51,9 @@ CKEDITOR.dialog.add = function (e1,e2) {
                 data.articleType = this.getValue();
             }
         };
-        data.contents[0].elements.splice(1,0,su_var);
+        if(e1=='link') {
+            data.contents[0].elements.splice(1,0,su_var);
+        }
         return data;
     });
 }
