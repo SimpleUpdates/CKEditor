@@ -52,7 +52,7 @@ CKEDITOR.dialog.add = function (e1,e2) {
             }
         };
         if(e1=='link') {
-            data.contents[0].elements.splice(1,0,su_var);
+            data.contents[0].elements[1].children.splice(0,0,su_var);
         }
         return data;
     });
