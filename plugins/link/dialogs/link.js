@@ -1,4 +1,65 @@
-﻿/*
+﻿// SU HACKS START
+CKEDITOR.dialog._add = CKEDITOR.dialog.add;
+CKEDITOR.dialog.add = function (e1,e2) {
+    CKEDITOR.dialog._add(e1,function(_a) {
+        var data = e2(_a);
+        var su_var =
+        {
+            id : 'articleType',
+            type : 'select',
+            label : "Article",
+            'default' : '-1',
+            items : // items are retrieved asynchronously
+            [
+            ],
+            onLoad : function( )
+            {
+		var selectBox = jQuery( '#'+this.getInputElement().getId() );
+		jQuery.getJSON( "action/article/ckeditor/links", function( data ){
+                    if( data.success ){
+			selectBox.append( jQuery( "<option/>" ) );
+			jQuery.each( data.links, function( key, link ) {
+				jQuery( "<option/>" ).val( link.value ).html( link.label ).appendTo( selectBox );
+			});
+                    } else {
+                        alert( data.error.message );
+                    }
+                });
+            },
+            onShow : function( )
+            {
+                jQuery( '#'+this.getInputElement().getId() ).val( '' );
+            },
+            onChange : function( data )
+            {
+                var dialog = this.getDialog();
+                if( this.getValue() == '-1' ){
+                    dialog.setValueOf( 'info', 'protocol', 'http://' );
+                    dialog.setValueOf( 'info', 'url', '' );
+                } else {
+                    dialog.setValueOf( 'info', 'protocol', '' );
+                    dialog.setValueOf( 'info', 'url', this.getValue() );
+                }
+            },
+            setup : function( data )
+            {
+                if ( data.articleType )
+                    this.setValue( data.articleType );
+            },
+            commit : function( data )
+            {
+                data.articleType = this.getValue();
+            }
+        };
+        if(e1=='link') {
+            data.contents[0].elements[1].children.splice(0,0,su_var);
+        }
+        return data;
+    });
+}
+// SU HACKS END
+
+/*
  Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
  For licensing, see LICENSE.html or http://ckeditor.com/license
 */
