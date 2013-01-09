@@ -7,15 +7,15 @@
  */
 /*********************************************************************************************************/
 
-CKEDITOR.dialog.add("inserthtml",function(e){	
+CKEDITOR.dialog.add("inserthtml",function(e){
 	return{
-		title:e.lang.inserthtml.title,
+		title:e.lang.inserthtml.inserthtml.title,
 		resizable : CKEDITOR.DIALOG_RESIZE_BOTH,
 		minWidth:380,
 		minHeight:220,
 		onShow:function(){ 
 		},
-		onLoad:function(){ 
+		onLoad:function(){
 				dialog = this; 
 				this.setupContent();
 		},
@@ -27,13 +27,14 @@ CKEDITOR.dialog.add("inserthtml",function(e){
 		contents:[
 			{	id:"info",
 				name:'info',
-				label:e.lang.inserthtml.commonTab,
+				label:e.lang.inserthtml.inserthtml.commonTab,
 				elements:[{
 				 type:'vbox',
 				 padding:0,
 				 children:[
-				  {type:'html',
-				  html:'<span>'+e.lang.inserthtml.HelpInfo+'</span>'
+				  {
+				  type:'html',
+				  html:'<span>'+e.lang.inserthtml.inserthtml.HelpInfo+'</span>'
 				  },
 				  { type:'textarea',
 				    id:'insertcode_area',
@@ -44,4 +45,5 @@ CKEDITOR.dialog.add("inserthtml",function(e){
 				}]
 			}
 		]
-	};});
+	};
+});

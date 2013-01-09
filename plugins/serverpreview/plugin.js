@@ -53,7 +53,7 @@
                 theForm.id=theForm.name ;
                 theForm.style.display = 'none' ;
 
-                theForm.action = editor.config.serverPreviewURL;
+                theForm.action = editor.config.serverPreviewURL + jQuery( "#page_id" ).val();
 
                 //new window please
                 theForm.target='_blank';
@@ -69,16 +69,6 @@
              input.name = 'htmlData' ;
              //set the data
              input.value = editor.getData();
-             //append the new input to the form
-             theForm.appendChild( input );
-
-             //that's all, append additional fields as needed, or set the variables in the previewPath
-			 var input = document.createElement('INPUT') ;
-             input.type = 'hidden';
-             //change the name as needed -->
-             input.name = 'pageId' ;
-             //set the data
-             input.value = jQuery( "#page_id" ).val();
              //append the new input to the form
              theForm.appendChild( input );
 

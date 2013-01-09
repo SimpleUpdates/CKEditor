@@ -11,8 +11,8 @@ $aspell_opts	= "-a --lang=$lang --encoding=utf-8 -H --rem-sgml-check=alt";		// b
 
 $tempfiledir = './';
 
-$spellercss		= '../spellerStyle.css';						// by FredCK
-$word_win_src	= '../wordWindow.js';							// by FredCK
+$spellercss		= 'third-party/CKEditor/plugins/aspell/spellerpages/spellerStyle.css';						// by FredCK
+$word_win_src	= 'third-party/CKEditor/plugins/aspell/spellerpages/wordWindow.js';							// by FredCK
 
 $textinputs		= $_POST['textinputs']; # array
 $input_separator = "A";
@@ -184,6 +184,7 @@ function print_checker_results() {
 ?>
 <html>
 <head>
+<base href="/" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="<?php echo $spellercss ?>" />
 <script language="javascript" src="<?php echo $word_win_src ?>"></script>
